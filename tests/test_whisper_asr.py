@@ -20,7 +20,8 @@ def test_whisper_init_stores_lang_and_config():
 def test_whisper_is_model_ready_false_when_no_dir():
     config = Config(model_dir=Path("/tmp/nonexistent_models_xyz"))
     asr = WhisperASR("ja", config)
-    assert asr.is_model_ready() is False
+    with patch.object(Path, "home", return_value=Path("/nonexistent_home")):
+        assert asr.is_model_ready() is False
 
 
 def test_whisper_is_model_ready_true_when_dir_exists_with_files(tmp_path):

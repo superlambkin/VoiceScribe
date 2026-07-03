@@ -46,7 +46,7 @@ class WhisperASR(ASRBackend):
                 compute_type=self.config.whisper_compute_type,
             )
 
-    def transcribe(self, audio_path: Path, lang: str = None) -> list[Segment]:
+    def transcribe(self, audio_path: Path, lang: str) -> list[Segment]:
         """转写音频文件"""
         self._ensure_model()
         lang = lang or self.lang
@@ -67,9 +67,13 @@ class WhisperASR(ASRBackend):
 
     def is_model_ready(self) -> bool:
         """检查 Whisper 模型目录是否存在且非空"""
+        # faster-whisper 默认使用 HuggingFace 缓存
+        # 我们也允许自定义 model_dir
         model_dir = self.config.model_dir / f"whisper-{self.config.whisper_model}"
         if not model_dir.exists():
-            return False
+            # 检查 HF 默认缓存
+            hf_cache = Path.home() / ".cache" / "huggingface" / "hub"
+            return hf_cache.exists() and any(hf_cache.iterdir())
         return any(model_dir.iterdir())
 
     def download_model(self, progress_callback: Optional[Callable[[float, str], None]] = None) -> None:
