@@ -18,6 +18,8 @@ dependencies = [
     "watchdog>=4.0",
     "PyYAML>=6.0",
     "tkinterdnd2>=0.4.0",
+    "pydub>=0.25",
+    "imageio-ffmpeg>=0.5",
 ]
 
 [project.optional-dependencies]

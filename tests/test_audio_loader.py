@@ -13,12 +13,12 @@ from voicescribe.core.audio_loader import (
 
 
 def test_supported_extensions_includes_common():
-    # v1 supports WAV, FLAC, OGG only (MP3/M4A not in v1 per brief spec)
+    # v0.1.0+ supports WAV, FLAC, OGG, MP3, M4A (requires pydub + ffmpeg for MP3/M4A)
     assert ".wav" in SUPPORTED_EXTENSIONS
     assert ".flac" in SUPPORTED_EXTENSIONS
     assert ".ogg" in SUPPORTED_EXTENSIONS
-    assert ".mp3" not in SUPPORTED_EXTENSIONS
-    assert ".m4a" not in SUPPORTED_EXTENSIONS
+    assert ".mp3" in SUPPORTED_EXTENSIONS
+    assert ".m4a" in SUPPORTED_EXTENSIONS
 
 
 def test_load_audio_returns_tuple(tmp_path):
