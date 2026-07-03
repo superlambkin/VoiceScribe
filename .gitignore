@@ -40,3 +40,11 @@ tests/fixtures/audio/
 
 # SDD workspace (短生命周期产物)
 .superpowers/sdd/output/
+
+# PyInstaller 中间产物
+build/
+voicescribe.spec
+voicescribe-gui.spec
+
+# 分发产物（可选保留）
+# dist/
