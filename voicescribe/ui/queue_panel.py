@@ -21,9 +21,10 @@ class QueuePanel(ttk.Treeview):
         self.column("size", width=80, anchor="e")
         self.column("lang", width=80, anchor="center")
 
-        # 添加滚动条
-        scrollbar = ttk.Scrollbar(parent, orient="vertical", command=self.yview)
-        self.configure(yscrollcommand=scrollbar.set)
+        # 添加滚动条（保存为实例属性，避免被 GC）
+        self.scrollbar = ttk.Scrollbar(parent, orient="vertical", command=self.yview)
+        self.configure(yscrollcommand=self.scrollbar.set)
+        self.scrollbar.pack(side="right", fill="y")
 
     def add_file(self, file_path: Path, lang: str = "auto") -> str:
         size_mb = file_path.stat().st_size / 1024 / 1024
