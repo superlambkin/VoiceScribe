@@ -24,7 +24,7 @@ class PaddleASR(ASRBackend):
     def __init__(self, config):
         self.config = config
 
-    def transcribe(self, audio_path: Path, lang: str = "zh") -> list[Segment]:
+    def transcribe(self, audio_path: Path, lang: str) -> list[Segment]:
         raise NotImplementedError(self._UNSUPPORTED_MSG)
 
     def is_model_ready(self) -> bool:

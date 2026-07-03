@@ -11,7 +11,7 @@ class WhisperASR(ASRBackend):
         self.config = config
         self.model = None
 
-    def transcribe(self, audio_path: Path, lang: str = None) -> list[Segment]:
+    def transcribe(self, audio_path: Path, lang: str) -> list[Segment]:
         raise NotImplementedError
 
     def is_model_ready(self) -> bool:
