@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+.eggs/
+.pytest_cache/
+.coverage
+htmlcov/
+
+# 虚拟环境
+venv/
+.venv/
+env/
+ENV/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# 模型缓存（懒下载）
+models/
+
+# 用户配置
+config.yaml
+voicescribe.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 测试音频
+tests/fixtures/audio/
+
+# SDD workspace (短生命周期产物)
+.superpowers/sdd/
