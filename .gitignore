@@ -39,4 +39,4 @@ Thumbs.db
 tests/fixtures/audio/
 
 # SDD workspace (短生命周期产物)
-.superpowers/sdd/
+.superpowers/sdd/output/
