@@ -48,3 +48,6 @@ voicescribe-gui.spec
 
 # 分发产物（可选保留）
 # dist/
+
+# Claude Code 本地配置
+.claude/
